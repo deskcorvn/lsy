@@ -1,0 +1,15 @@
+{
+  "brand": "GiftyTech",
+  "aliases": ["Gifty Tech", "giftytech.com"],
+  "domains": ["giftytech.com"],
+  "competitors": ["Doi thu 1", "Doi thu 2"],
+  "competitorDomains": { "Doi thu 1": "doithu1.vn", "Doi thu 2": "doithu2.com" },
+  "prompts": [
+    "Cong ty thiet ke website doanh nghiep uy tin o Hai Phong?",
+    "Dich vu lam website chuan SEO cho doanh nghiep nho nen chon ai?",
+    "Don vi nao lam website toi uu cho AI (ChatGPT, Gemini) tai Viet Nam?",
+    "Nen thue ai lam landing page gioi thieu doanh nghiep chuyen nghiep?",
+    "Cong ty nao toi uu GEO AEO cho website tai Hai Phong?",
+    "Lam website doanh nghiep chuan 5 tru cot AI Search o dau?"
+  ]
+}

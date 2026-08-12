@@ -1,0 +1,27 @@
+name: CI
+on:
+  push:
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm verify
+      - name: Placeholder gate
+        run: |
+          if grep -rnE "CẦN ĐIỀN|CAN DIEN|lorem ipsum" --include=*.ts --include=*.tsx --exclude=*.bni.ts src content.config.ts; then
+            echo "::error::Còn nội dung placeholder chưa điền"; exit 1
+          fi
+      - name: AI-content phrase gate
+        run: |
+          if grep -rnE "As an AI|I cannot fulfill|là một mô hình ngôn ngữ|Là một AI" --include=*.ts --include=*.tsx --exclude=*.bni.ts src content.config.ts; then
+            echo "::error::Còn câu sinh-máy (generic LLM) chưa biên tập"; exit 1
+          fi

@@ -1,0 +1,12 @@
+{
+    "toolkit_commit":  "aa1b05d7cf50aea64de2d6ccfba9e2b4f8d537d3",
+    "version":  "0.1.0",
+    "installed_at":  "2026-08-12T08:30:21Z",
+    "assets_installed":  {
+                             "agents":  36,
+                             "skills":  65,
+                             "playbooks":  19,
+                             "design_systems":  12
+                         },
+    "source_path":  "D:\\Workspace\\A3 Landingpage\\agency-toolkit"
+}

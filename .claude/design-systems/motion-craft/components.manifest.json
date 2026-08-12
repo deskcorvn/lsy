@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "brandId": "motion-craft",
+  "source": {
+    "componentsHtml": "components.html",
+    "tokensCss": "tokens.css"
+  },
+  "groups": [
+    {
+      "id": "kinetic-type-hero",
+      "label": "Kinetic type hero",
+      "signatureMove": "line reveal then focal media settle",
+      "maxAnimatedGroups": 3
+    },
+    {
+      "id": "proof-rail",
+      "label": "User-controlled horizontal proof rail",
+      "signatureMove": "scroll snap with restrained hover lift"
+    },
+    {
+      "id": "magnetic-cta",
+      "label": "Pointer-only magnetic CTA",
+      "signatureMove": "inner content shifts no more than 6px"
+    },
+    {
+      "id": "reveal-copy",
+      "label": "Phrase-based copy reveal",
+      "signatureMove": "three emphasis beats maximum"
+    },
+    {
+      "id": "sticky-story-stack",
+      "label": "Sticky case-study stack",
+      "signatureMove": "scale from 1 to 0.96; static list on mobile"
+    },
+    {
+      "id": "depth-grid",
+      "label": "Asymmetric media depth grid",
+      "signatureMove": "single featured span plus 4px hover lift"
+    }
+  ]
+}

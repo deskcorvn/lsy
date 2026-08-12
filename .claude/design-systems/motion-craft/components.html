@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Motion Craft — component reference</title>
+  <link rel="stylesheet" href="./tokens.css">
+  <style>
+    * { box-sizing: border-box; }
+    html { background: var(--mc-bg); color: var(--mc-fg); font-family: var(--mc-font-body); }
+    body { margin: 0; }
+    a { color: inherit; }
+    .shell { width: min(100%, var(--mc-container)); margin-inline: auto; padding-inline: var(--mc-gutter); }
+    .hero { min-height: 92svh; display: grid; align-content: space-between; gap: var(--mc-space-16); padding-block: var(--mc-space-8) var(--mc-section-y); }
+    .nav { display: flex; justify-content: space-between; align-items: center; }
+    .eyebrow { color: var(--mc-accent); font-size: .75rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+    .hero h1 { max-width: 7ch; margin: 0; font-family: var(--mc-font-display); font-size: var(--mc-text-hero); line-height: var(--mc-leading-display); letter-spacing: var(--mc-tracking-display); text-transform: uppercase; }
+    .hero-foot { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--mc-space-8); align-items: end; }
+    .lead { max-width: 34rem; margin: 0; color: var(--mc-fg-muted); font-size: var(--mc-text-lead); line-height: var(--mc-leading-body); }
+    .cta { display: inline-flex; min-height: 3rem; align-items: center; justify-content: center; padding: .75rem 1.25rem; border: 0; border-radius: var(--mc-radius-pill); background: var(--mc-accent); color: var(--mc-accent-on); font: 800 .85rem/1 var(--mc-font-body); text-decoration: none; transition: transform var(--mc-motion-fast) var(--mc-ease-spring); }
+    .cta:hover { transform: translateY(calc(var(--mc-shift-sm) * -1)); }
+    .cta:focus-visible { outline: 3px solid var(--mc-focus); outline-offset: 4px; }
+    .rail { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(16rem, 28rem); gap: var(--mc-space-4); overflow-x: auto; padding-block: var(--mc-space-8); scroll-snap-type: x mandatory; }
+    .rail article { min-height: 15rem; padding: var(--mc-space-6); border: 1px solid var(--mc-border); border-radius: var(--mc-radius-md); background: linear-gradient(145deg, var(--mc-surface-raised), var(--mc-surface)); scroll-snap-align: start; transition: transform var(--mc-motion-base) var(--mc-ease-out), border-color var(--mc-motion-fast); }
+    .rail article:hover { transform: translateY(calc(var(--mc-shift-sm) * -1)); border-color: var(--mc-accent); }
+    .rail h2 { margin: 0; font-size: clamp(1.75rem, 4vw, 3.5rem); }
+    .rail p { color: var(--mc-fg-muted); }
+    .story { padding-block: var(--mc-section-y); }
+    .story > h2 { max-width: 8ch; margin: 0 0 var(--mc-space-12); font: 800 var(--mc-text-section)/.9 var(--mc-font-display); letter-spacing: var(--mc-tracking-display); text-transform: uppercase; }
+    .stack { display: grid; gap: var(--mc-space-8); }
+    .stack article { position: sticky; top: 1rem; min-height: 60svh; display: grid; align-content: end; padding: var(--mc-space-8); border: 1px solid var(--mc-border); border-radius: var(--mc-radius-lg); background: var(--mc-surface); }
+    .stack article:nth-child(2) { top: 2rem; background: var(--mc-surface-raised); }
+    .stack article:nth-child(3) { top: 3rem; background: #222b35; }
+    .stack h3 { max-width: 12ch; margin: 0; font-size: clamp(2rem, 6vw, 6rem); line-height: .95; }
+    .stack p { max-width: 40rem; color: var(--mc-fg-muted); }
+    @media (max-width: 48rem) {
+      .hero h1 { max-width: 100%; font-size: clamp(3.25rem, 15vw, 4.25rem); }
+      .hero-foot { grid-template-columns: 1fr; }
+      .cta { justify-self: start; }
+      .stack article { position: relative; top: auto !important; min-height: 24rem; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero shell">
+      <nav class="nav" aria-label="Demo navigation"><strong>MC/01</strong><span class="eyebrow">One signature move</span></nav>
+      <h1>Move with meaning</h1>
+      <div class="hero-foot">
+        <p class="lead">Chuyển động tốt không trang trí giao diện. Nó dẫn mắt, giải thích quan hệ và làm phản hồi trở nên tự nhiên.</p>
+        <a class="cta" href="#stories">Xem pattern</a>
+      </div>
+    </section>
+
+    <section class="shell" aria-label="Proof rail">
+      <div class="rail">
+        <article><span class="eyebrow">Pattern 01</span><h2>Kinetic hero</h2><p>Reveal theo dòng, media vào sau, tối đa ba nhóm chuyển động.</p></article>
+        <article><span class="eyebrow">Pattern 02</span><h2>Proof rail</h2><p>Scroll do người dùng kiểm soát; không marquee vô hạn cho nội dung cần đọc.</p></article>
+        <article><span class="eyebrow">Pattern 03</span><h2>Depth grid</h2><p>Một tile nổi bật, nhịp lệch hàng nhẹ, hover lift bốn pixel.</p></article>
+      </div>
+    </section>
+
+    <section class="story shell" id="stories">
+      <h2>Sticky story stack</h2>
+      <div class="stack">
+        <article><span class="eyebrow">01 — Context</span><h3>Bắt đầu bằng vấn đề thật</h3><p>Mỗi card giữ một ý và một bằng chứng. Không dùng card chỉ để khoe animation.</p></article>
+        <article><span class="eyebrow">02 — Decision</span><h3>Cho thấy lựa chọn thiết kế</h3><p>Scale rất nhẹ để tạo chiều sâu; mobile trở về list bình thường.</p></article>
+        <article><span class="eyebrow">03 — Result</span><h3>Kết bằng kết quả đo được</h3><p>Storytelling phục vụ chuyển đổi và độ tin cậy, không giành sự chú ý khỏi nội dung.</p></article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

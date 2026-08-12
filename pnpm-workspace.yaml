@@ -1,0 +1,10 @@
+# Repo đơn-package: khai packages để pnpm 9 (vd Vercel mặc định) không lỗi
+# "packages field missing or empty" khi file chỉ chứa config allowBuilds.
+packages:
+  - "."
+
+# pnpm 10+ đọc cấu hình từ đây (không còn đọc field "pnpm" trong package.json).
+# Cho phép sharp chạy build-script để next/image tối ưu ảnh sản phẩm.
+allowBuilds:
+  esbuild: true
+  sharp: true

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "od-design-system-project/v1",
+  "id": "motion-craft",
+  "name": "Motion Craft",
+  "category": "Premium motion landing pages",
+  "description": "Original agency motion system distilled from common interaction patterns; contains no third-party prompts, assets, or copied layouts.",
+  "source": {
+    "type": "original",
+    "origin": "GiftyTech Agency Toolkit"
+  },
+  "files": {
+    "design": "DESIGN.md",
+    "tokens": "tokens.css",
+    "tailwind": "tailwind-v4.css",
+    "components": "components.html"
+  },
+  "usage": "USAGE.md",
+  "componentsManifest": "components.manifest.json",
+  "importMode": "normalized",
+  "craft": {
+    "applies": [
+      "motion",
+      "accessibility-baseline",
+      "performance"
+    ],
+    "suggested": [
+      "review-animations",
+      "art-gate"
+    ],
+    "exemptions": []
+  }
+}

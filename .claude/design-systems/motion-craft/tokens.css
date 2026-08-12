@@ -1,0 +1,69 @@
+:root {
+  --mc-bg: #0b0d10;
+  --mc-surface: #13171d;
+  --mc-surface-raised: #1a2028;
+  --mc-fg: #f4f1e9;
+  --mc-fg-muted: #a8b0bd;
+  --mc-border: rgba(244, 241, 233, 0.14);
+  --mc-accent: #ff6b3d;
+  --mc-accent-on: #130704;
+  --mc-focus: #9ed0ff;
+
+  --mc-font-display: "Arial Narrow", "Roboto Condensed", system-ui, sans-serif;
+  --mc-font-body: Inter, ui-sans-serif, system-ui, sans-serif;
+  --mc-text-body: clamp(1rem, 0.95rem + 0.2vw, 1.125rem);
+  --mc-text-lead: clamp(1.125rem, 1rem + 0.6vw, 1.5rem);
+  --mc-text-section: clamp(2.75rem, 1.5rem + 6vw, 7.5rem);
+  --mc-text-hero: clamp(4rem, 1.6rem + 12vw, 12rem);
+  --mc-leading-display: 0.88;
+  --mc-leading-body: 1.55;
+  --mc-tracking-display: -0.055em;
+
+  --mc-space-1: 0.25rem;
+  --mc-space-2: 0.5rem;
+  --mc-space-3: 0.75rem;
+  --mc-space-4: 1rem;
+  --mc-space-6: 1.5rem;
+  --mc-space-8: 2rem;
+  --mc-space-12: 3rem;
+  --mc-space-16: 4rem;
+  --mc-section-y: clamp(4rem, 2rem + 7vw, 9rem);
+  --mc-container: 88rem;
+  --mc-gutter: clamp(1rem, 0.5rem + 2vw, 2.5rem);
+
+  --mc-radius-sm: 0.75rem;
+  --mc-radius-md: 1.25rem;
+  --mc-radius-lg: 2rem;
+  --mc-radius-pill: 999px;
+
+  --mc-motion-fast: 140ms;
+  --mc-motion-base: 240ms;
+  --mc-motion-story: 480ms;
+  --mc-stagger: 80ms;
+  --mc-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --mc-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --mc-shift-sm: 0.25rem;
+  --mc-shift-md: 1rem;
+  --mc-shift-lg: 2rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --mc-motion-fast: 1ms;
+    --mc-motion-base: 1ms;
+    --mc-motion-story: 1ms;
+    --mc-stagger: 0ms;
+    --mc-shift-sm: 0rem;
+    --mc-shift-md: 0rem;
+    --mc-shift-lg: 0rem;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+  }
+}

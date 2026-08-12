@@ -1,0 +1,73 @@
+{
+  "slug": "demo-tech",
+  "brand": {
+    "name": "Stack Lab",
+    "description": "Đội kỹ thuật xây dựng web và app cho doanh nghiệp — gọn, nhanh, chuẩn.",
+    "domain": "stacklab.dev",
+    "phone": "0900333444",
+    "email": "team@stacklab.dev",
+    "locality": "Hải Phòng"
+  },
+  "branding": { "vibe": "industrial", "primary": "#00e676", "accent": "#ffb800" },
+  "content": {
+    "page": {
+      "title": "Stack Lab — Xây web và app cho doanh nghiệp",
+      "description": "Đội kỹ sư dựng website, web app và API cho doanh nghiệp. Giao đúng hẹn, code sạch.",
+      "dateModified": "2026-06-29"
+    },
+    "sections": [
+      {
+        "id": "hero",
+        "type": "hero",
+        "heading": "Code sạch. Giao nhanh. Chạy bền.",
+        "subheading": "Stack Lab dựng web và app cho doanh nghiệp với kỷ luật kỹ thuật và bàn giao đúng hẹn.",
+        "highlights": ["Giao đúng hẹn", "Code review chặt", "Bảo trì dài hạn"],
+        "primaryCta": { "label": "Nhận tư vấn", "href": "#lien-he" },
+        "secondaryCta": { "label": "Năng lực", "href": "#gia-tri" },
+        "variant": "split"
+      },
+      {
+        "id": "gia-tri",
+        "type": "valueHighlights",
+        "heading": "Cách Stack Lab làm việc",
+        "columns": 3,
+        "items": [
+          { "icon": "trending-up", "title": "Giao đúng hẹn", "description": "Quy trình rõ ràng, mốc bàn giao minh bạch — bạn luôn biết dự án đang ở đâu." },
+          { "icon": "sparkles", "title": "Kỷ luật kỹ thuật", "description": "Code review chặt, test tự động, chuẩn hóa — sản phẩm bền chứ không chỉ chạy được." },
+          { "icon": "globe", "title": "Bảo trì dài hạn", "description": "Đồng hành sau bàn giao: vá lỗi, nâng cấp, mở rộng khi doanh nghiệp lớn lên." }
+        ]
+      },
+      {
+        "id": "gioi-thieu",
+        "type": "about",
+        "heading": "Stack Lab là ai",
+        "body": [
+          "Stack Lab là đội kỹ sư tập trung vào chất lượng kỹ thuật: viết code sạch, kiểm thử kỹ và bàn giao đúng hẹn.",
+          "Chúng tôi tin sản phẩm tốt đến từ kỷ luật chứ không phải may rủi, nên mọi dự án đều qua review và test trước khi lên sóng."
+        ]
+      },
+      {
+        "id": "faq",
+        "type": "faq",
+        "heading": "Câu hỏi thường gặp",
+        "items": [
+          { "question": "Stack Lab làm những loại dự án nào?", "answer": "Chúng tôi dựng website doanh nghiệp, web app, API và tích hợp hệ thống — tập trung vào Next.js, Node và hạ tầng cloud hiện đại." },
+          { "question": "Một dự án web mất bao lâu để bàn giao?", "answer": "Tùy phạm vi, thường 2–6 tuần cho một sản phẩm hoàn chỉnh. Chúng tôi chia mốc rõ ràng và demo định kỳ để bạn theo sát tiến độ." }
+        ]
+      },
+      {
+        "id": "cta",
+        "type": "cta",
+        "heading": "Bắt đầu dự án với Stack Lab",
+        "body": "Kể cho chúng tôi bài toán của bạn — chúng tôi đề xuất giải pháp.",
+        "primaryCta": { "label": "Liên hệ ngay", "href": "#lien-he" }
+      },
+      {
+        "id": "lien-he",
+        "type": "contactForm",
+        "heading": "Liên hệ Stack Lab",
+        "note": "Để lại thông tin, đội kỹ thuật sẽ phản hồi trong 24 giờ."
+      }
+    ]
+  }
+}

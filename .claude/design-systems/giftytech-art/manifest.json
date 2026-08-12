@@ -1,0 +1,19 @@
+{
+  "name": "giftytech-art",
+  "description": "Art direction contract for GiftyID/GiftyTech: civic commerce command system, product stages, ECard premium profile, proof editorial, and data storytelling.",
+  "origin": "ours",
+  "license": "proprietary",
+  "files": {
+    "design": "DESIGN.md",
+    "usage": "USAGE.md",
+    "tokens": "tokens.css"
+  },
+  "lanes": [
+    "command-hero",
+    "product-stage",
+    "editorial-proof",
+    "data-story",
+    "premium-profile"
+  ]
+}
+

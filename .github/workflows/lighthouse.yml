@@ -1,0 +1,23 @@
+name: Lighthouse
+on:
+  pull_request:
+  workflow_dispatch:
+
+# Cổng hiệu năng (SXO/SEO). CLS = error (ổn định); LCP/perf = warn (CI hay nhiễu).
+# Khi đã có baseline ổn, đổi "warn" -> "error" trong lighthouserc.json để chặn cứng.
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
+      - name: Lighthouse CI
+        run: |
+          npm install -g @lhci/cli@0.14.x
+          lhci autorun

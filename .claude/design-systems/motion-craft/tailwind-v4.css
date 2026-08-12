@@ -1,0 +1,27 @@
+@import "tailwindcss";
+@import "./tokens.css";
+
+@theme {
+  --color-mc-bg: var(--mc-bg);
+  --color-mc-surface: var(--mc-surface);
+  --color-mc-surface-raised: var(--mc-surface-raised);
+  --color-mc-fg: var(--mc-fg);
+  --color-mc-muted: var(--mc-fg-muted);
+  --color-mc-border: var(--mc-border);
+  --color-mc-accent: var(--mc-accent);
+  --color-mc-accent-on: var(--mc-accent-on);
+  --font-mc-display: var(--mc-font-display);
+  --font-mc-body: var(--mc-font-body);
+  --text-mc-body: var(--mc-text-body);
+  --text-mc-lead: var(--mc-text-lead);
+  --text-mc-section: var(--mc-text-section);
+  --text-mc-hero: var(--mc-text-hero);
+  --radius-mc-sm: var(--mc-radius-sm);
+  --radius-mc-md: var(--mc-radius-md);
+  --radius-mc-lg: var(--mc-radius-lg);
+  --duration-mc-fast: var(--mc-motion-fast);
+  --duration-mc-base: var(--mc-motion-base);
+  --duration-mc-story: var(--mc-motion-story);
+  --ease-mc-out: var(--mc-ease-out);
+  --ease-mc-spring: var(--mc-ease-spring);
+}

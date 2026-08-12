@@ -1,0 +1,72 @@
+{
+  "slug": "demo-cafe",
+  "brand": {
+    "name": "Cà phê Mộc",
+    "description": "Quán cà phê thủ công tại Hải Phòng — rang mộc, không gian ấm, cà phê sạch từ nông trại Việt.",
+    "domain": "camoc.vn",
+    "phone": "0900111222",
+    "email": "hello@camoc.vn",
+    "locality": "Hải Phòng"
+  },
+  "branding": { "vibe": "organic", "primary": "#6b4f2a", "accent": "#c08e3a" },
+  "content": {
+    "page": {
+      "title": "Cà phê Mộc — Cà phê thủ công Hải Phòng",
+      "description": "Quán cà phê rang mộc, không gian ấm tại Hải Phòng. Đặt bàn, mua hạt rang mộc.",
+      "dateModified": "2026-06-29"
+    },
+    "sections": [
+      {
+        "id": "hero",
+        "type": "hero",
+        "heading": "Cà phê rang mộc, pha bằng cả tấm lòng",
+        "subheading": "Không gian ấm giữa lòng Hải Phòng — nơi mỗi tách cà phê là một câu chuyện.",
+        "highlights": ["Rang mộc mỗi ngày", "Hạt sạch Việt Nam", "Không gian ấm"],
+        "primaryCta": { "label": "Đặt bàn", "href": "#lien-he" },
+        "secondaryCta": { "label": "Xem giá trị", "href": "#gia-tri" }
+      },
+      {
+        "id": "gia-tri",
+        "type": "valueHighlights",
+        "heading": "Vì sao chọn Cà phê Mộc",
+        "columns": 3,
+        "items": [
+          { "icon": "sparkles", "title": "Rang mộc", "description": "Hạt cà phê rang mỗi ngày, giữ trọn hương vị nguyên bản, không pha tạp." },
+          { "icon": "globe", "title": "Hạt sạch", "description": "Nguồn hạt từ nông trại Việt Nam canh tác bền vững, truy xuất rõ ràng." },
+          { "icon": "handshake", "title": "Không gian ấm", "description": "Chỗ ngồi thoải mái, ánh sáng dịu — hợp gặp gỡ, làm việc hay nghỉ ngơi." }
+        ]
+      },
+      {
+        "id": "gioi-thieu",
+        "type": "about",
+        "heading": "Câu chuyện Cà phê Mộc",
+        "body": [
+          "Cà phê Mộc bắt đầu từ tình yêu với hạt cà phê Việt và mong muốn mang đến một chốn dừng chân ấm áp cho người Hải Phòng.",
+          "Chúng tôi tự rang, tự pha, chọn từng mẻ hạt — để mỗi tách cà phê đến tay bạn đều trọn vị và thật."
+        ]
+      },
+      {
+        "id": "faq",
+        "type": "faq",
+        "heading": "Câu hỏi thường gặp",
+        "items": [
+          { "question": "Quán có nhận đặt bàn trước không?", "answer": "Có, bạn có thể đặt bàn qua số điện thoại hoặc form liên hệ. Chúng tôi giữ chỗ trong 15 phút kể từ giờ hẹn." },
+          { "question": "Cà phê Mộc có bán hạt mang về không?", "answer": "Có. Quán bán hạt rang mộc theo gói, xay theo yêu cầu. Bạn có thể mua trực tiếp tại quán hoặc đặt qua liên hệ." }
+        ]
+      },
+      {
+        "id": "cta",
+        "type": "cta",
+        "heading": "Ghé Cà phê Mộc hôm nay",
+        "body": "Một tách cà phê rang mộc đang chờ bạn.",
+        "primaryCta": { "label": "Đặt bàn ngay", "href": "#lien-he" }
+      },
+      {
+        "id": "lien-he",
+        "type": "contactForm",
+        "heading": "Liên hệ Cà phê Mộc",
+        "note": "Để lại thông tin, chúng tôi sẽ gọi xác nhận đặt bàn."
+      }
+    ]
+  }
+}

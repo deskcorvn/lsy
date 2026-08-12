@@ -1,0 +1,294 @@
+@import "tailwindcss";
+
+:root {
+  --brand-primary: #1e5f86;
+  --brand-accent: #e08a2b;
+  /* Design persona fallbacks — layout.tsx ghi đè theo theme.vibe (xem src/design/profile.ts) */
+  --font-display: "Inter", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --p-surface: #ffffff;
+  --p-surface-alt: #f7f7f8;
+  --p-card: #ffffff;
+  --p-ink: #111111;
+  --p-muted: #5b5b5b;
+  --p-line: #e5e5e5;
+  --p-radius: 8px;
+  --p-shadow: 0 1px 0 #e5e5e5;
+}
+
+body {
+  @apply antialiased;
+  font-family: var(--font-body);
+  background: var(--p-surface);
+  color: var(--p-ink);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* MediaGrid: caption scrim — ẩn tới khi hover/focus; thiết bị không hover (touch) luôn hiện.
+   Text vẫn nằm trong DOM (a11y + SEO), chỉ đổi opacity. */
+.mg-scrim {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.mg-card:hover .mg-scrim,
+.mg-card:focus-within .mg-scrim {
+  opacity: 1;
+}
+@media (hover: none) {
+  .mg-scrim {
+    opacity: 1;
+  }
+}
+.mg-card:hover .mg-lift,
+.mg-card:focus-within .mg-lift {
+  transform: translateY(-4px);
+}
+.mg-lift {
+  transition: transform 0.2s ease;
+}
+
+/* MediaGrid: artwork phóng nhẹ khi hover — card sống mà không đổi layout. */
+.mg-card img {
+  transition: transform 0.45s var(--ease-out-quint);
+}
+.mg-card:hover .mg-lift img,
+.mg-card:focus-within .mg-lift img {
+  transform: scale(1.05);
+}
+
+/* LogoMarquee: cuộn ngang vô hạn; tôn trọng prefers-reduced-motion (luật impeccable). */
+@keyframes lm-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.lm-track {
+  animation: lm-scroll 40s linear infinite;
+}
+
+/* ---------- Hệ motion (impeccable/animate): MỘT entrance hero được dàn dựng,
+   stagger chỉ cho card-grid, micro-feedback cho nút. Không bounce, không glow. ---------- */
+:root {
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Hero choreography: các lớp con rise-up so le theo --i (80ms/bước, tổng <500ms). */
+@keyframes rise-up {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.hero-enter > * {
+  animation: rise-up 0.7s var(--ease-out-quint) both;
+  animation-delay: calc(var(--i, 0) * 80ms);
+}
+/* Chữ ký script: hiện chậm hơn như hơi thở (đích opacity giữ trong style inline). */
+@keyframes breathe-in {
+  from {
+    opacity: 0;
+  }
+}
+.hero-script {
+  animation: breathe-in 1.6s ease-out both;
+  animation-delay: 0.35s;
+}
+/* Bầu trời "thở": zoom cực chậm, luân phiên — tranh sống mà không ồn. */
+@keyframes sky-breathe {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.07);
+  }
+}
+.hero-sky {
+  animation: sky-breathe 48s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+/* Card-grid reveal khi cuộn (sibling stagger hợp lệ — KHÔNG áp cho cả section). */
+@supports (animation-timeline: view()) {
+  .card-reveal {
+    animation: rise-up 0.6s var(--ease-out-quint) both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 55%;
+  }
+}
+
+/* Micro-feedback nút: nhấc nhẹ khi hover, nén khi bấm (100-150ms). */
+.btn-press {
+  transition:
+    transform 0.15s var(--ease-out-quint),
+    filter 0.15s ease,
+    opacity 0.15s ease;
+}
+.btn-press:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.06);
+}
+.btn-press:active {
+  transform: translateY(0) scale(0.97);
+}
+
+/* Nav: gạch chân gradient hairline trượt ra khi hover (tầng gradient nhỏ nhất của brand). */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: -4px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--brand-primary), var(--brand-accent));
+  transition: right 0.25s var(--ease-out-quint);
+}
+.nav-link:hover::after,
+.nav-link[aria-current="page"]::after {
+  right: 0;
+}
+
+/* ---------- Scene decor (HeroDecor): sao · sao băng · đom đóm · piano · parallax ---------- */
+.decor-layer {
+  position: absolute;
+  inset: 0;
+  transform: translate3d(
+    calc(var(--px, 0) * var(--depth, 5) * 1.6px),
+    calc(var(--py, 0) * var(--depth, 5) * 1px),
+    0
+  );
+  transition: transform 0.35s var(--ease-out-quint);
+}
+.decor-star {
+  position: absolute;
+  border-radius: 999px;
+  background: #efeaff;
+  animation: twinkle var(--tw-dur, 4s) ease-in-out var(--tw-delay, 0s) infinite alternate;
+}
+@keyframes twinkle {
+  from {
+    opacity: 0.12;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 0.85;
+    transform: scale(1.15);
+  }
+}
+.decor-shooting-star {
+  position: absolute;
+  top: 12%;
+  left: -12%;
+  width: 130px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, #efeaff 55%, #fff);
+  transform: rotate(16deg);
+  opacity: 0;
+  animation: shoot 11s linear 3s infinite;
+}
+@keyframes shoot {
+  0%,
+  91% {
+    opacity: 0;
+    translate: 0 0;
+  }
+  92% {
+    opacity: 0.9;
+  }
+  97% {
+    opacity: 0;
+    translate: 62vw 17vh;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.decor-firefly {
+  position: absolute;
+  bottom: 6%;
+  border-radius: 999px;
+  background: #ffd9a0;
+  box-shadow: 0 0 6px 1px rgba(255, 217, 160, 0.55);
+  opacity: 0;
+  animation: firefly var(--ff-dur, 14s) ease-in-out var(--ff-delay, 0s) infinite;
+}
+@keyframes firefly {
+  0% {
+    opacity: 0;
+    transform: translate(0, 12px) scale(0.8);
+  }
+  12% {
+    opacity: 0.8;
+  }
+  45% {
+    transform: translate(var(--ff-sway, 24px), -19vh) scale(1);
+  }
+  78% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(var(--ff-sway, 24px) * -0.4), -37vh) scale(0.85);
+  }
+}
+.decor-piano {
+  position: absolute;
+  right: 3%;
+  bottom: -8px;
+  cursor: pointer;
+  filter: drop-shadow(0 10px 24px rgba(5, 3, 20, 0.6));
+  transition: transform 0.3s var(--ease-out-quint);
+}
+.decor-piano:hover {
+  transform: translateY(-3px);
+}
+.decor-piano:active {
+  transform: translateY(0) scale(0.985);
+}
+.decor-piano:focus-visible {
+  outline: 2px solid var(--brand-accent);
+  outline-offset: 4px;
+  border-radius: 12px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lm-track,
+  .hero-sky,
+  .hero-enter > *,
+  .hero-script,
+  .card-reveal,
+  .decor-star,
+  .decor-shooting-star,
+  .decor-firefly {
+    animation: none;
+  }
+  .decor-star {
+    opacity: 0.5;
+  }
+  .decor-firefly {
+    display: none;
+  }
+  .mg-lift,
+  .mg-scrim,
+  .mg-card img,
+  .btn-press,
+  .nav-link::after,
+  .decor-layer,
+  .decor-piano {
+    transition: none;
+  }
+}
