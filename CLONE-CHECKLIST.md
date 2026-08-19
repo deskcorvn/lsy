@@ -45,7 +45,8 @@
 | Lọt câu sinh-máy ("As an AI…") | CI grep gate | CI FAIL |
 
 ## Lệnh
-- `pnpm verify` = `typecheck` + `build` + `preflight` + `test` (cổng tổng, dùng cho local & CI).
+- `pnpm verify` = `typecheck` + `build` + `preflight` + `test` + `approval-gate` (cổng tổng, dùng cho local & CI).
+- `pnpm approval-gate` — bắt buộc playbook/skill và handoff đã duyệt cho đủ ART/COPY/SEO/GEO; quyết định gu, giọng và dữ liệu vẫn thuộc Codex/người duyệt.
 - `pnpm generate --brief brief.json` — **AIO**: sinh nháp nội dung bằng Claude (mặc định dry-run; thêm `--run` + `ANTHROPIC_API_KEY`). Nháp phải biên tập + `pnpm verify` mới ship.
 - `pnpm build && pnpm geo-audit` — **đo GEO/AEO on-site** theo 3 lớp / 12 điểm (Discovery · Parsability · Authority): chấm Foundation Score + gợi ý fix (báo cáo, không chặn). Đo OFF-SITE (AI có thực sự nhắc brand) dùng agent **AI Citation Strategist**.
 

@@ -145,7 +145,9 @@ const config = {
     shortName: "LSY",
     description:
       "Máy lọc nước LSY và nền tảng hỗ trợ theo dõi, chăm sóc thiết bị cho gia đình.",
-    domain: "lsy.vn",
+    // Vercel currently serves www.lsy.vn as the final host (lsy.vn -> 308 www).
+    // Keep generated canonical, sitemap and JSON-LD on the non-redirecting host.
+    domain: "www.lsy.vn",
     logo: "/logo.png",
     ogImage: "/og.png",
     taxId: "0801321580",

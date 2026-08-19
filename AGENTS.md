@@ -34,7 +34,7 @@ Không thấy `.claude/playbooks/` ⇒ repo **chưa chạy bootstrap của toolk
    ```bash
    pnpm install && pnpm verify
    ```
-   `pnpm verify` = `typecheck` + `build` + `preflight` + `test`. Sửa cho đến khi exit 0.
+   `pnpm verify` = `typecheck` + `build` + `preflight` + `test` + `approval-gate`. Sửa cho đến khi exit 0.
 
 ## Quy tắc (không vi phạm)
 - TUYỆT ĐỐI không sửa `src/` khi nhân bản (UI/SEO/guardrails dùng chung).

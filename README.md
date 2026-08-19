@@ -32,7 +32,7 @@ Template website catalog (sản phẩm + dịch vụ) lấy dữ liệu từ Med
 - `client.config.ts` + `src/env.ts`: **Zod validate** → cấu hình sai/thiếu là build FAIL ngay.
 - `pnpm preflight` (**đã có, 14 cổng**): đúng 1 `<h1>` (chỉ ở `Hero.tsx`) · JSON-LD `Organization`+`WebSite` · hết placeholder · có `logo.svg`/`og.png` · **trang chủ có `contactForm`** (cổng #10) · có `/api/contact` · không `<details>` gập (AEO) · mọi `<img>` có `alt` · anchor sống · section không hardcode màu slate. *(Không ping Medusa — landing content-only không cần.)*
 - vitest (**đã có, 11 file**): `jsonld` · `sitemap-robots` · `content.schema` · `config.invariant` · `geo` · `aio-quality` · `contact-api` · `tenant` · `builder` · `design-direction` · `design-profile`. *(Product JSON-LD/sitemap sản phẩm là phần Medusa — xem M1/M2 dưới.)*
-- CI (**đã có**): `.github/workflows/ci.yml` chạy `pnpm verify` + Placeholder gate + AI-content phrase gate; `lighthouse.yml` chạy trên PR (CLS chặn cứng).
+- CI (**đã có**): `.github/workflows/ci.yml` chạy `pnpm verify` + Placeholder gate + AI-content phrase gate; `approval-gate` bắt buộc playbook/skill và handoff đã duyệt cho ART/COPY/SEO/GEO; `lighthouse.yml` chạy trên PR (SEO + CLS chặn cứng, performance/LCP vẫn cảnh báo theo baseline).
 - **Cổng người duyệt** (máy không bắt được): ART · COPY · SEO · GEO — xem `AGENTS.md` + `.claude/playbooks/codex-gates.md`.
 
 ## Trạng thái
@@ -44,7 +44,7 @@ Template website catalog (sản phẩm + dịch vụ) lấy dữ liệu từ Med
 **Đã xong — dùng được ngay, ĐỪNG viết lại:**
 - [x] **M0** — scaffold Next 16 + TS + Tailwind 4 + config/env (Zod) · `next.config.ts` · `src/env.ts`
 - [x] **M3** — SEO/AEO/GEO: `src/app/sitemap.ts` · `robots.ts` · `llms.txt` + `llms-full.txt` · JSON-LD (`src/lib/jsonld.ts`, `src/components/seo/JsonLd.tsx`, `src/lib/seo/schema.ts`) · **`scripts/geo-audit.mjs`** (3 lớp/12 điểm) · `scripts/citation-audit.mjs`
-- [x] **M5** — CI + guardrails: `.github/workflows/ci.yml` (+ `lighthouse.yml`) · `scripts/preflight.mjs` **12 cổng** · `tests/` **11 file** · `pnpm verify` = typecheck+build+preflight+test
+- [x] **M5** — CI + guardrails: `.github/workflows/ci.yml` (+ `lighthouse.yml`) · `scripts/preflight.mjs` **14 cổng** · `scripts/approval-gate.mjs` · `tests/` · `pnpm verify` = typecheck+build+preflight+test+approval-gate
 - [x] **M6** — generator: `scripts/setup.mjs` · `scripts/make-og.mjs` · `scripts/generate.mjs` (AIO) · `scripts/design-direction.mjs`
 
 **Tuỳ chọn — CHỈ bật khi khách dùng catalog Medusa (không phải "chưa làm", site content-only không cần):**

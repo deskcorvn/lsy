@@ -61,7 +61,7 @@ Mâu thuẫn thật thì `AGENTS.md` thắng.
 | 2 | **`client.config.ts`** — brand, theme, contact, social, nav, logo · **cổng: Zod + GEO GATE nếu có `taxId`/`legalName` thật** | thủ công / AI / **đã-tự-động** | gõ tay | `node scripts/setup.mjs` hỏi-đáp → tự ghi config + `logo.svg` + `og.png` |
 | 3 | **`content.config.ts`** — nội dung các section (1 hero ở index 0, id không trùng, hết placeholder) | thủ công / AI | điền tay từ fixture `content.config.bni.ts` | AI điền (Zod + preflight bắt lỗi) |
 | 4 | **Assets**: `public/logo.svg` + `public/og.png` | đã-tự-động / thủ công | gõ + `scripts/make-og.mjs` | `setup.mjs` đã sinh sẵn ở bước 2 |
-| 5 | **`pnpm install && pnpm verify`** (typecheck + build + preflight + test) | đã-tự-động (script/CI) | chạy lệnh, sửa tới khi exit 0 | CI tự chạy mỗi push |
+| 5 | **`pnpm install && pnpm verify`** (typecheck + build + preflight + test + approval-gate) | đã-tự-động (script/CI) | chạy lệnh, sửa tới khi exit 0 | CI tự chạy mỗi push |
 | 6 | **GEO/AEO + nội dung audit** (1 `<h1>`, JSON-LD `Organization`+`WebSite`, sitemap≠rỗng, robots không chặn nhầm, hết «CẦN ĐIỀN») | đã-tự-động (preflight + vitest + CI grep) | **nằm TRONG `verify` ở bước 5** | gate tự động, không thao tác |
 | 7 | **Deploy Vercel** (tài khoản khách) + gắn domain | thủ công | bấm tay trên Vercel | Vercel Git-import: tự deploy mỗi push (gắn domain 1 lần) |
 
@@ -225,7 +225,7 @@ Schema từng kiểu section: xem [§6 Phụ lục](#6-phụ-lục).
 
 ```bash
 pnpm install
-pnpm verify          # = typecheck && build && preflight && test
+pnpm verify          # = typecheck && build && preflight && test && approval-gate
 ```
 
 | Cổng | Lệnh | Kiểm tra | FAIL nếu |

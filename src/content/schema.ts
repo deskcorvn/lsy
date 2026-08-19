@@ -41,6 +41,7 @@ const Hero = SectionBase.extend({
 
 const ValueHighlights = SectionBase.extend({
   type: z.literal("valueHighlights"),
+  eyebrow: z.string().min(1).optional(),
   heading: z.string().optional(),
   columns: z.union([z.literal(2), z.literal(3), z.literal(4)]).default(3),
   items: z
@@ -59,6 +60,7 @@ const About = SectionBase.extend({
   heading: z.string().min(1),
   body: z.array(z.string().min(1)).min(1), // moi phan tu = 1 doan <p>
   media: z.string().optional(),
+  mediaAlt: z.string().min(1).optional(),
 });
 
 const Leadership = SectionBase.extend({

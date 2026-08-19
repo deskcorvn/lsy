@@ -32,11 +32,11 @@ export function GET() {
   );
   if (about) lines.push("", `## ${about.heading}`, ...about.body);
 
-  const value = content.sections.find(
+  const values = content.sections.filter(
     (s): s is SectionOf<"valueHighlights"> => s.type === "valueHighlights",
   );
-  if (value) {
-    lines.push("", "## Giá trị cốt lõi");
+  for (const value of values) {
+    lines.push("", `## ${value.heading ?? value.eyebrow ?? "Thông tin nổi bật"}`);
     for (const it of value.items) lines.push(`- ${it.title}: ${it.description}`);
   }
 

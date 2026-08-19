@@ -47,9 +47,14 @@ export default function ContactForm({
   if (status === "done") {
     return (
       <section id={section.id} style={{ background: "var(--p-surface-alt)", color: "var(--p-ink)" }}>
-        <div className="mx-auto max-w-xl px-6 py-16 text-center md:py-24">
-          <h2 className="font-display text-4xl font-bold tracking-tight md:text-5xl">{section.heading}</h2>
-          <p className="mt-4" style={{ color: "var(--p-muted)" }}>{section.successMessage}</p>
+        <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
+          <div className="max-w-xl">
+            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em]" style={{ color: "var(--brand-primary)" }}>
+              Đã gửi thông tin
+            </p>
+            <h2 className="font-display text-4xl font-bold tracking-tight md:text-5xl">{section.heading}</h2>
+            <p className="mt-4" style={{ color: "var(--p-muted)" }}>{section.successMessage}</p>
+          </div>
         </div>
       </section>
     );
@@ -57,10 +62,16 @@ export default function ContactForm({
 
   return (
     <section id={section.id} style={{ background: "var(--p-surface-alt)", color: "var(--p-ink)" }}>
-      <div className="mx-auto max-w-xl px-6 py-16 md:py-24">
-        <h2 className="font-display text-4xl font-bold tracking-tight md:text-5xl">{section.heading}</h2>
-        {section.note && <p className="mt-3" style={{ color: "var(--p-muted)" }}>{section.note}</p>}
-        <form onSubmit={submit} className="mt-8 grid gap-4">
+      <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:items-start lg:gap-16">
+          <div>
+            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em]" style={{ color: "var(--brand-primary)" }}>
+              Bắt đầu cuộc trao đổi
+            </p>
+            <h2 className="font-display text-4xl font-bold tracking-tight md:text-5xl">{section.heading}</h2>
+            {section.note && <p className="mt-4 text-lg leading-relaxed" style={{ color: "var(--p-muted)" }}>{section.note}</p>}
+          </div>
+          <form onSubmit={submit} className="grid gap-4 p-6 md:p-8" style={{ background: "var(--p-card)", border: "1px solid var(--p-line)", borderRadius: "var(--p-radius)", boxShadow: "var(--p-shadow)" }}>
           {/* honeypot chống bot: người thật luôn để trống */}
           <input
             type="text"
@@ -100,7 +111,8 @@ export default function ContactForm({
           >
             {status === "loading" ? "Đang gửi…" : section.submitLabel}
           </button>
-        </form>
+          </form>
+        </div>
       </div>
     </section>
   );
