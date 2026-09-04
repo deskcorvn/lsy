@@ -175,6 +175,8 @@ const config = {
   navCta: { label: "Nhận tư vấn", href: "#lien-he" },
   footerLinks: [
     { label: "Facebook", href: "https://www.facebook.com/198754154014260/" },
+    // href nội bộ → Footer xếp xuống hàng hairline dưới cùng, cạnh ©.
+    { label: "Điều khoản & Quyền riêng tư", href: "/dieu-khoan" },
   ],
   geo: {
     mentions: [
